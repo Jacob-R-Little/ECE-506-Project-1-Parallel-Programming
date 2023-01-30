@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#SBATCH -J omp_matmul         # Job name
+#SBATCH -o job.%j.out         # Name of stdout output file (%j expands to jobId)
+#SBATCH -e job.%j.err
+#SBATCH -t 04:00:00           # Run time (hh:mm:ss) - 4 hours
+#SBATCH --cpus-per-task 16    # Request node with 16 cores
+
+bin/omp_matmul 16 matmul_a.txt matmul_b.txt > matmul_c_omp_16.txt

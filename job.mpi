@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#SBATCH -J mpi_matmul         # Job name
+#SBATCH -o job.%j.out         # Name of stdout output file (%j expands to jobId)
+#SBATCH -e job.%j.err
+#SBATCH -t 04:00:00           # Run time (hh:mm:ss) - 4 hours
+#SBATCH --ntasks=16           # 16 ranks
+#SBATCH --nodes=2             # Spread over 2 nodes
+
+mpirun -np 16 bin/mpi_matmul matmul_a.txt matmul_b.txt > matmul_c_mpi_16.txt

@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#SBATCH -J serial_matmul      # Job name
+#SBATCH -o job.%j.out         # Name of stdout output file (%j expands to jobId)
+#SBATCH -e job.%j.err
+#SBATCH -t 16:00:00           # Run time (hh:mm:ss) - 1.5 hours
+
+bin/serial_matmul matmul_a.txt matmul_b.txt > matmul_c_serial.txt

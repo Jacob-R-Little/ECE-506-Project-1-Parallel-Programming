@@ -1,0 +1,2 @@
+#!/bin/bash
+srun -n 16 --pty /bin/bash # get 16 cores (1 node) in interactive mode
